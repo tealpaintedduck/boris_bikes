@@ -2,7 +2,12 @@ require_relative 'bike'
 
 class DockingStation
   def initialize
+    @capacity = 1
     @number_of_bikes = 0
+  end
+
+  def capacity
+    @capacity
   end
 
   def number_of_bikes
@@ -15,7 +20,7 @@ class DockingStation
   end
 
   def dock bike
-    if @number_of_bikes == 0
+    if @number_of_bikes + 1 <= @capacity
       @bike = bike
       @number_of_bikes += 1
     else

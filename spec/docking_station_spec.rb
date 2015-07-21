@@ -6,12 +6,18 @@ describe DockingStation do
     expect(subject.number_of_bikes).to eq(0)
   end
 
+  it "should initialize with capacity set to 1" do
+    expect(subject.capacity).to eq(1)
+  end
+
   it "should dock a bike" do
     expect(subject).to respond_to(:dock).with(1).argument
   end
 
   it "should raise an error when there is already a bike docked" do
-    expect{ subject.dock Bike.new }.to raise_error "There is already a bike docked!"
+    station = DockingStation.new
+    station.dock Bike.new
+    expect{ station.dock Bike.new }.to raise_error "There is already a bike docked!"
   end
 
   it "releases working bikes" do

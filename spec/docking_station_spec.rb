@@ -14,5 +14,9 @@ describe DockingStation do
   it "should check if a bike is available" do
     expect(subject).to respond_to(:bike_available?)
   end
+
+  it "should dock a bike" do
+    expect(subject).to respond_to(:dock).with(1).argument
+  end
 end
 

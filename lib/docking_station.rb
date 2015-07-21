@@ -8,4 +8,7 @@ class DockingStation
   def bike_available?
 
   end
+
+  def dock bike
+  end
 end

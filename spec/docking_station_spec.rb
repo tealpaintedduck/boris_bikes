@@ -10,5 +10,9 @@ describe DockingStation do
     bike = Bike.new
     expect(bike).to be_working
   end
+
+  it "should check if a bike is available" do
+    expect(subject).to respond_to(:bike_available?)
+  end
 end
 

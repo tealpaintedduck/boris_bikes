@@ -5,12 +5,16 @@ describe DockingStation do
     expect(subject.bikes).to eq([])
   end
 
+  it "should have a default capacity" do
+    expect(subject.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
+
   it "should dock a bike" do
     expect(subject).to respond_to(:dock).with(1).argument
   end
 
   it "should raise an error when there is already a bike docked" do
-    20.times {subject.dock Bike.new}
+    subject.capacity.times {subject.dock Bike.new}
     expect{ subject.dock Bike.new }.to raise_error "There is no more space!"
   end
 
